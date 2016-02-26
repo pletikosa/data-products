@@ -16,7 +16,7 @@ shinyUI(fluidPage(
     ),
   
   # Application title
-  headerPanel("Estimate a House Price in San Francisco"),
+  headerPanel("HOUSE PRICE ESTIMATOR"),
   
   ## sidebar containing input components
   sidebarPanel(
@@ -29,7 +29,7 @@ shinyUI(fluidPage(
     sliderInput("squarefeet", "House size (sqft):", value = 500, min = 0, max = 15000),
     sliderInput("lotsize", "Lot size (sqft):", value = 500, min = 0, max = 15000),
     hr(),
-    selectInput("neighborhood", "In which neighborhood is the house located?", c(), 
+    selectInput("neighborhood", "In which San Francisco neighborhood is the house located?", c(), 
                 selected = NULL, multiple = FALSE, selectize = TRUE, width = NULL, size = NULL),
     hr(),
     selectInput("month", "When do you plan to sell/buy?", c("January", "February", 
@@ -60,7 +60,7 @@ shinyUI(fluidPage(
         helpText("The table below shows houses similar on one or more of the following 
                  criteria: number of bedrooms, the year when the house was built, and the 
                  neighborhood. For a complete listing of houses sold in San Francisco, 
-                 in the period between 1848 and 2009, please refer to the 
+                 in the period between February, 2008 and July, 2009, please refer to the 
                  'Previous House Sales' tab."),  
         br(),
         DT::dataTableOutput("salesTable"), style = 'width:100%;'
@@ -69,7 +69,7 @@ shinyUI(fluidPage(
       # complete dataset tab
       tabPanel("Previous House Sales", mainPanel(
         br(),
-        h4("Houses Sold in San Francico in the Period Between 1848 and 2009"),
+        h4("Houses Sold in San Francico in the Period Between February, 2008 and July, 2009"),
         hr(),
         br(),
         DT::dataTableOutput("fullSalesTable"), style = 'width:100%;')),
